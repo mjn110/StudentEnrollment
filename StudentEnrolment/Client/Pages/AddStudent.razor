@@ -1,0 +1,86 @@
+﻿@page "/add"
+@using StudentEnrolment.Shared;
+@using StudentEnrolment.Shared.ViewModels;
+@inject HttpClient Client
+@inject NavigationManager Navigate
+
+
+<PageTitle>New Student</PageTitle>
+
+<h1>New Student</h1>
+
+<p>Please fill the student information form</p>
+<EditForm Model="@StudentVM" OnValidSubmit="AddNewStudent">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    <div class="row">
+        <div class="col-12 col-md-6 mb-3">
+            <InputText required @bind-Value="StudentVM.StudentName" class="form-control" aria-label="Name" placeholder="Student Name"></InputText>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-md-6 mb-3">
+            <div class="input-group">
+                <span class="input-group-text" id="basic-addon1">Date of Birth</span>
+                <InputDate required @bind-Value="StudentVM.DateOfBirth" class="form-control" aria-label="Birth" placeholder="Date of Birth"></InputDate>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-md-6 mb-3">
+            <InputText required @bind-Value="StudentVM.CourseName" class="form-control" aria-label="Course" placeholder="Course Name"></InputText>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-md-6 col-lg-3 mb-3">
+            <div class="input-group">
+                <span class="input-group-text" id="basic-addon1">Start Date</span>
+                <InputDate required @bind-Value="StudentVM.StartDate" class="form-control" aria-label="Start" placeholder="Start Date"></InputDate>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3 mb-3">
+            <div class="input-group">
+                <span class="input-group-text" id="basic-addon1">End Date</span>
+                <InputDate required @bind-Value="StudentVM.EndDate" class="form-control" aria-label="End" placeholder="End Date"></InputDate>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-md-6 mb-3">
+            <div class="input-group">
+                <span class="input-group-text" id="basic-addon1">Welsh Language Proficiency</span>
+                <InputSelect required @bind-Value="StudentVM.WelshLanguageProficiency" class="form-control" aria-label="Welsh" placeholder="Welsh Language Proficiency">
+                    <option selected disabled>Please select an option</option>
+                    <option value="Fluent">Fluent</option>
+                    <option value="Interact with other welsh speakers">Interact with other welsh speakers</option>
+                    <option value="use basic expressions">use basic expressions</option>
+                    <option value="none">none</option>
+                </InputSelect>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <button class="btn btn-success">
+                Add Student
+            </button>
+        </div>
+    </div>
+</EditForm>
+
+@code {
+    public AddStudentViewModel StudentVM { get; set; } = new AddStudentViewModel();
+
+    public IEnumerable<Student> Students { get; set; }
+
+    private async void AddNewStudent()
+    {
+        Client.PostAsJsonAsync<AddStudentViewModel>("https://localhost:7117/api/Student", StudentVM);
+        Refresh();
+    }
+
+    public async void Refresh()
+    {
+        Navigate.NavigateTo("/", true);
+    }
+}

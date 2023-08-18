@@ -1,0 +1,37 @@
+﻿@page "/search"
+@using StudentEnrolment.Shared
+@using StudentEnrolment.Shared.ViewModels;
+@inject HttpClient Http
+@inject HttpClient Client
+
+<PageTitle>Search students</PageTitle>
+
+<h1>Search students</h1>
+
+<p>This component demonstrates fetching students from the server.</p>
+<EditForm Model="@SearchVM" OnSubmit="SearchStudent">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    <div class="input-group mb-5">
+        <InputText @bind-Value="SearchVM.SearchText" class="form-control" placeholder="Search students by id or name"></InputText>
+        <button class="btn btn-primary">Search</button>
+    </div>
+</EditForm>
+
+<Index DisplayTitle="false" Students="@Students"></Index>
+
+@code {
+    public SearchViewModel SearchVM { get; set; } = new SearchViewModel();
+
+    public IEnumerable<Student> Students { get; set; }
+
+    private async void SearchStudent()
+    {
+        Students = await Client.GetFromJsonAsync<IEnumerable<Student>>($"https://localhost:7117/api/Student/SearchStudents?id=" + SearchVM.SearchText).ConfigureAwait(false);
+        Refresh();
+    }
+    private async void Refresh()
+    {
+        StateHasChanged();
+    }
+}

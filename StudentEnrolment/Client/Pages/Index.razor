@@ -1,0 +1,74 @@
+﻿@page "/"
+@using StudentEnrolment.Shared;
+@inject NavigationManager Navigate
+@inject HttpClient Client
+
+<PageTitle>Students</PageTitle>
+
+@if (DisplayTitle)
+{
+    <h1>Students</h1>
+
+    <p>Welcome to Student Enrolment app.</p>
+}
+
+<table class="table mb-5">
+    <thead>
+        <tr>
+            <th>Student id</th>
+            <th>Student name</th>
+            <th>Date of Birth</th>
+            <th>University course</th>
+            <th>Start date</th>
+            <th>End date</th>
+            <th>Welsh language proficiency</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody class="align-content-center">
+        @if(Students != null)
+        {
+            @foreach (var item in Students)
+            {
+                <tr>
+                    <td class="align-middle">@item.StudentId</td>
+                    <td class="align-middle">@item.StudentName</td>
+                    <td class="align-middle">@item.DateOfBirth.ToShortDateString()</td>
+                    <td class="align-middle">@item.CourseName</td>
+                    <td class="align-middle">@item.StartDate.ToShortDateString()</td>
+                    <td class="align-middle">@item.EndDate.ToShortDateString()</td>
+                    <td class="align-middle">@item.WelshLanguageProficiency</td>
+                    <td>
+                        <button class="btn btn-danger float-end" @onclick="@(e => DeleteStudent(item.StudentId))">×</button>
+                        <button class="btn btn-primary float-end mx-2" @onclick="@(e => GoToUpdate(item.StudentId))">Edit</button>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+@code
+{
+    [Parameter]
+    public bool DisplayTitle { get; set; } = true;
+    [Parameter]
+    public IEnumerable<Student> Students { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        Students = await Client.GetFromJsonAsync<IEnumerable<Student>>("https://localhost:7117/api/Student").ConfigureAwait(false);
+    }
+
+    public async void DeleteStudent(int StudentId)
+    {
+        Client.DeleteAsync($"https://localhost:7117/api/Student/{StudentId}");
+        Students = await Client.GetFromJsonAsync<IEnumerable<Student>>("https://localhost:7117/api/Student").ConfigureAwait(false);
+        Navigate.NavigateTo("/", true);
+    }
+
+    public void GoToUpdate(int StudentId)
+    {
+        Navigate.NavigateTo($"/update/{StudentId}");
+    }
+}

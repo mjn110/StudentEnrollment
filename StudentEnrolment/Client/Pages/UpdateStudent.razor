@@ -1,0 +1,66 @@
+﻿@page "/update"
+@page "/update/{studentid:int}"
+@using StudentEnrolment.Shared;
+@using StudentEnrolment.Shared.ViewModels;
+@inject HttpClient Client
+@inject NavigationManager Navigate
+
+<PageTitle>Update Student</PageTitle>
+
+<h1>Update Student</h1>
+
+<p>Please edit the student information</p>
+<EditForm Model="@StudentVM" OnValidSubmit="UpdateStudentInfo">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    <div class="row">
+        <div class="col-12 col-md-6 mb-3">
+            <InputText required @bind-Value="StudentVM.StudentName" class="form-control" placeholder="Student Name"></InputText>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-md-6 mb-3">
+            <div class="input-group">
+                <span class="input-group-text" id="basic-addon1">Welsh Language Proficiency</span>
+                <InputSelect required @bind-Value="StudentVM.WelshLanguageProficiency" class="form-control" placeholder="Welsh Language Proficiency">
+                    <option>Fluent</option>
+                    <option>Interact with other welsh speakers</option>
+                    <option>use basic expressions</option>
+                    <option>none</option>
+                </InputSelect>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <button class="btn btn-success">
+                Update Student
+            </button>
+        </div>
+    </div>
+</EditForm>
+
+@code {
+
+    //public Student Student { get; set; } = new Student();
+    public UpdateStudentViewModel StudentVM { get; set; } = new UpdateStudentViewModel();
+
+    [Parameter]
+    public int studentid { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        StudentVM = await Client.GetFromJsonAsync<UpdateStudentViewModel>($"https://localhost:7117/api/Student/GetStudentForUpdate?id={studentid}").ConfigureAwait(false);
+    }
+
+    private async Task UpdateStudentInfo()
+    {
+        Client.PutAsJsonAsync<UpdateStudentViewModel>($"https://localhost:7117/api/Student/{studentid}", StudentVM).ConfigureAwait(false);
+        Refresh();
+    }
+
+    public async void Refresh()
+    {
+        Navigate.NavigateTo("/", true);
+    }
+}
