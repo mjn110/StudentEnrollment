@@ -1,13 +1,8 @@
-using AngleSharp.Dom;
 using Bunit;
 using Moq;
 using Moq.Protected;
 using Microsoft.Extensions.DependencyInjection;
-using System;
 using System.Net;
-using System.Net.Http;
-using System.Net.Http.Json;
-using System.Threading.Tasks;
 using StudentEnrolment.Client.Pages;
 using StudentEnrolment.Shared;
 using StudentEnrolment.Shared.ViewModels;

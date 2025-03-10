@@ -15,14 +15,14 @@
     <ValidationSummary />
     <div class="row">
         <div class="col-12 col-md-6 mb-3">
-            <InputText required @bind-Value="StudentVM.StudentName" class="form-control" placeholder="Student Name"></InputText>
+            <InputText required @bind-Value="StudentVM.StudentName" class="form-control" aria-label="Name" placeholder="Student Name"></InputText>
         </div>
     </div>
     <div class="row">
         <div class="col-12 col-md-6 mb-3">
             <div class="input-group">
                 <span class="input-group-text" id="basic-addon1">Welsh Language Proficiency</span>
-                <InputSelect required @bind-Value="StudentVM.WelshLanguageProficiency" class="form-control" placeholder="Welsh Language Proficiency">
+                <InputSelect required @bind-Value="StudentVM.WelshLanguageProficiency" class="form-control" aria-label="Welsh" placeholder="Welsh Language Proficiency">
                     <option>Fluent</option>
                     <option>Interact with other welsh speakers</option>
                     <option>use basic expressions</option>
@@ -43,6 +43,7 @@
 @code {
 
     //public Student Student { get; set; } = new Student();
+    [Parameter]
     public UpdateStudentViewModel StudentVM { get; set; } = new UpdateStudentViewModel();
 
     [Parameter]
@@ -55,7 +56,7 @@
 
     private async Task UpdateStudentInfo()
     {
-        Client.PutAsJsonAsync<UpdateStudentViewModel>($"https://localhost:7117/api/Student/{studentid}", StudentVM).ConfigureAwait(false);
+        await Client.PutAsJsonAsync<UpdateStudentViewModel>($"https://localhost:7117/api/Student/{studentid}", StudentVM).ConfigureAwait(false);
         Refresh();
     }
 
