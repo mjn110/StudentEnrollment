@@ -1,0 +1,150 @@
+﻿@page "/signin"
+@layout EmptyLayout
+@using Microsoft.AspNetCore.Components.Forms
+@using Microsoft.AspNetCore.Identity
+@using StudentEnrolment.Client.ViewModels
+@using StudentEnrolment.Shared.Models
+@inject NavigationManager Navigation
+@inject HttpClient Client
+@inject IJSRuntime JSRuntime
+
+<div class="d-flex align-items-center justify-content-center vh-100">
+    <div class="card shadow-lg p-3 my-5 py-5 rounded-1 border-dark border-1" style="width: 22rem;">
+        <div class="card-header border-0 bg-transparent text-center">
+            <h4 class="fw-bolder">Sign In</h4>
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-shield-lock" viewBox="0 0 16 16">
+                    <path d="M5.338 1.59a61 61 0 0 0-2.837.856.48.48 0 0 0-.328.39c-.554 4.157.726 7.19 2.253 9.188a10.7 10.7 0 0 0 2.287 2.233c.346.244.652.42.893.533q.18.085.293.118a1 1 0 0 0 .101.025 1 1 0 0 0 .1-.025q.114-.034.294-.118c.24-.113.547-.29.893-.533a10.7 10.7 0 0 0 2.287-2.233c1.527-1.997 2.807-5.031 2.253-9.188a.48.48 0 0 0-.328-.39c-.651-.213-1.75-.56-2.837-.855C9.552 1.29 8.531 1.067 8 1.067c-.53 0-1.552.223-2.662.524zM5.072.56C6.157.265 7.31 0 8 0s1.843.265 2.928.56c1.11.3 2.229.655 2.887.87a1.54 1.54 0 0 1 1.044 1.262c.596 4.477-.787 7.795-2.465 9.99a11.8 11.8 0 0 1-2.517 2.453 7 7 0 0 1-1.048.625c-.28.132-.581.24-.829.24s-.548-.108-.829-.24a7 7 0 0 1-1.048-.625 11.8 11.8 0 0 1-2.517-2.453C1.928 10.487.545 7.169 1.141 2.692A1.54 1.54 0 0 1 2.185 1.43 63 63 0 0 1 5.072.56" />
+                    <path d="M9.5 6.5a1.5 1.5 0 0 1-1 1.415l.385 1.99a.5.5 0 0 1-.491.595h-.788a.5.5 0 0 1-.49-.595l.384-1.99a1.5 1.5 0 1 1 2-1.415" />
+                </svg>
+            </div>
+        </div>
+        <div class="card-body">
+            <EditForm Model="@SignInVM" OnValidSubmit="HandleSignIn" OnInvalidSubmit="CheckValidation" class="needs-validation" novalidate>
+                <DataAnnotationsValidator />
+                @* <ValidationSummary class="small" /> *@
+                <div class="form-floating mb-3">
+                    <InputText @bind-Value="SignInVM.Email" @oninput="(e => CheckEmailInput(((ChangeEventArgs)e).Value?.ToString()))" id="floatingUsername" type="email" class="@(EmailValid + " form-control rounded-0")" placeholder="Username" required />
+                    <label for="floatingUsername">Username</label>
+                    <div class="invalid-tooltip">
+                        Must be a valid email address.
+                    </div>
+                </div>
+                <div class="form-floating mb-3">
+                    <InputText @bind-value="SignInVM.Password" @oninput="(e => CheckPasswordInput(((ChangeEventArgs)e).Value?.ToString()))" id="floatingPassword" type="password" class="@(PassValid + " form-control rounded-0")" placeholder="Password" required />
+                    <label for="floatingPassword">Password</label>
+                    <div class="invalid-tooltip">
+                        Must includes capitals and numbers.
+                    </div>
+                </div>
+                <div class="form-group mb-3 text-center">
+                    <button type="submit" class="btn btn-dark btn-block rounded-0">Sign in</button>
+                </div>
+                <div class="text-center">
+                    <a href="signin" class="text-dark">Forgot password?</a>
+                </div>
+            </EditForm>
+        </div>
+    </div>
+</div>
+<div class="d-flex justify-content-center fixed-top mt-4">
+    <div class="toast align-items-center border-secondary rounded-1" id="liveToast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+            <div class="toast-body">
+                @NotificationMessage
+            </div>
+            <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+    </div>
+</div>
+
+@code {
+    private SignInViewModel SignInVM = new();
+    public string EmailValid { get; set; } = string.Empty;
+    public string PassValid { get; set; } = string.Empty;
+    public string NotificationMessage { get; set; } = string.Empty;
+
+    private async Task HandleSignIn()
+    {
+        var EmailValidation = await CheckEmailInput(SignInVM.Email);
+        var PassValidation = await CheckPasswordInput(SignInVM.Password);
+        if (EmailValidation && PassValidation)
+        {
+            // Validation succeed so perform sign-in logic here
+            var response = await Client.PostAsJsonAsync("https://localhost:7117/api/Account/SignIn", SignInVM);
+            if (response.IsSuccessStatusCode)
+            {
+                Console.WriteLine("Sign in successful");
+                EmailValid = "valid";
+                EmailValid = "valid";
+                await ShowToast("Authentication succeed!");
+                await Task.Delay(2000);
+                Navigation.NavigateTo("/");
+            }
+            else
+            {
+                Console.WriteLine("Sign in failed");
+                EmailValid = "is-invalid";
+                PassValid = "is-invalid";
+                // Handle error
+                await ShowToast("Incorrect username or password.");
+            }
+        }
+        else
+        {
+            // Validation failed
+            Console.WriteLine("Validation failed");
+            // Handle validation error
+        }
+    }
+
+    private async Task CheckValidation()
+    {
+        if (SignInVM.Email == null || SignInVM.Password == null)
+        {
+            await ShowToast("Username or password cannot be empty!");
+        }
+        else
+        {
+            await CheckEmailInput(SignInVM.Email);
+            await CheckPasswordInput(SignInVM.Password);
+        }
+    }
+
+    private async Task<bool> CheckEmailInput(string inputMessage)
+    {
+        if (inputMessage.Contains('@') && !inputMessage.StartsWith('@') && inputMessage.IndexOf('@') < inputMessage.Length - 1 && char.IsLetter(inputMessage[inputMessage.IndexOf('@') + 1]))
+        {
+            EmailValid = "valid";
+            return true;
+        }
+        else
+        {
+            EmailValid = "is-invalid";
+            await ShowToast("The username is not a valid email address.");
+            return false;
+        }
+    }
+
+    private async Task<bool> CheckPasswordInput(string inputMessage)
+    {
+        if (!string.IsNullOrEmpty(inputMessage) && inputMessage.Any(char.IsUpper) && inputMessage.Any(char.IsDigit))
+        {
+            PassValid = "valid";
+            return true;
+        }
+        else
+        {
+            PassValid = "is-invalid";
+            await ShowToast("The password is not in a correct format.");
+            return false;
+        }
+    }
+
+    private async Task ShowToast(string notificationMessage)
+    {
+        NotificationMessage = notificationMessage;
+        StateHasChanged(); // Ensure UI updates immediately
+        await JSRuntime.InvokeVoidAsync("showToast");
+    }
+}

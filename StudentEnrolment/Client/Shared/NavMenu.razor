@@ -1,6 +1,6 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
+﻿<div class="top-row ps-3 navbar navbar-dark bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="">Student Enrolment</a>
+        <a class="navbar-brand pe-5" href="">Student Enrolment</a>
         <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -9,19 +9,24 @@
 
 <div class="@NavMenuCssClass nav-scrollable" @onclick="ToggleNavMenu">
     <nav class="flex-column">
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+        <div class="nav-item text-dark px-3">
+            <NavLink class="nav-link text-secondary" href="" Match="NavLinkMatch.All">
                 <span class="oi oi-home" aria-hidden="true"></span> Home
             </NavLink>
         </div>
         <div class="nav-item px-3">
-            <NavLink class="nav-link" href="add">
+            <NavLink class="nav-link text-secondary" href="add">
                 <span class="oi oi-plus" aria-hidden="true"></span> New Student
             </NavLink>
         </div>
         <div class="nav-item px-3">
-            <NavLink class="nav-link" href="search">
-                <span class="oi oi-list-rich" aria-hidden="true"></span> List & Search
+            <NavLink class="nav-link text-secondary" href="search">
+                <span class="oi oi-list" aria-hidden="true"></span> List & Search
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link text-secondary" href="signin">
+                <span class="oi oi-ban" aria-hidden="true"></span> Signout
             </NavLink>
         </div>
     </nav>

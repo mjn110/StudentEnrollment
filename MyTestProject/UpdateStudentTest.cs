@@ -8,6 +8,7 @@ using StudentEnrolment.Shared;
 using StudentEnrolment.Shared.ViewModels;
 using System.Linq;
 using System.Net.Http.Json;
+using Microsoft.AspNetCore.Components;
 
 namespace MyTestProject
 {
@@ -26,78 +27,67 @@ namespace MyTestProject
                 WelshLanguageProficiency = "Fluent"
             };
 
-            // Step 2: Mock GET request (fetch existing student data)
-            mockHandler.Protected()
-                .Setup<Task<HttpResponseMessage>>(
-                    "SendAsync",
+
+            var mockHttpHandler = new Mock<HttpMessageHandler>();
+
+            // Mock GET request
+            mockHttpHandler.Protected()
+                .Setup<Task<HttpResponseMessage>>("SendAsync",
                     ItExpr.Is<HttpRequestMessage>(req =>
                         req.Method == HttpMethod.Get &&
-                        req.RequestUri.ToString().Contains($"https://localhost:7117/api/Student/GetStudentForUpdate/?id={studentId}")),
-                    ItExpr.IsAny<CancellationToken>())
+                        req.RequestUri.ToString().Contains($"api/Student/GetStudentForUpdate?id={studentId}")
+                    ),
+                    ItExpr.IsAny<CancellationToken>()
+                )
                 .ReturnsAsync(new HttpResponseMessage
                 {
                     StatusCode = HttpStatusCode.OK,
                     Content = JsonContent.Create(updatedStudent)
                 });
 
-            // Step 3: Mock PUT request (update student data)
-            mockHandler.Protected()
-                .Setup<Task<HttpResponseMessage>>(
-                    "SendAsync",
+            // Mock PUT request
+            mockHttpHandler.Protected()
+                .Setup<Task<HttpResponseMessage>>("SendAsync",
                     ItExpr.Is<HttpRequestMessage>(req =>
                         req.Method == HttpMethod.Put &&
-                        req.RequestUri.ToString().Contains($"https://localhost:7117/api/Student/{studentId}")),
-                    ItExpr.IsAny<CancellationToken>())
-                .ReturnsAsync(new HttpResponseMessage
-                {
-                    StatusCode = HttpStatusCode.NoContent
-                });
+                        req.RequestUri.ToString().Contains($"api/Student/{studentId}")
+                    ),
+                    ItExpr.IsAny<CancellationToken>()
+                )
+                .ReturnsAsync(new HttpResponseMessage { StatusCode = HttpStatusCode.NoContent });
 
-            var httpClient = new HttpClient(mockHandler.Object)
-            {
-                BaseAddress = new Uri("http://localhost:7117/")
-            };
+            var client = new HttpClient(mockHttpHandler.Object) { BaseAddress = new Uri("https://localhost:7117/") };
 
-            Services.AddSingleton(httpClient);
+            Services.AddSingleton(client);
+            var mockNav = new Mock<NavigationManager>();
+            Services.AddSingleton(mockNav.Object);
 
-            // Render the UpdateStudent component
-            var cut = RenderComponent<UpdateStudent>(parameters => parameters
-                .Add(p => p.StudentVM, updatedStudent) // Pass the student object to the component
-                .Add(p => p.studentid, studentId) // Pass the studentId to the component
-            );
+            // Act
+            var cut = RenderComponent<UpdateStudent>(parameters => parameters.Add(p => p.studentid, studentId));
 
-            //await Task.Delay(100);
+            // Verify student data loads
+            Assert.Equal("Harry Goldingay", cut.Find("input[aria-label='Name']").GetAttribute("value"));
 
-            ////Fill out the form with updated values
-            //cut.Find("input[aria-label='Name']").Change(updatedStudent.StudentName);
-            //cut.Find("select[aria-label='Welsh']").Change(updatedStudent.WelshLanguageProficiency);
+            // Simulate form update
+            cut.Find("input[aria-label='Name']").Change("Updated Name");
+            cut.Find("select[aria-label='Welsh']").Change("none");
 
-            // Step 5: Simulate form submission (update student)
-            await cut.InvokeAsync(() => cut.Find("form").Submit());
+            // Submit the form
+            cut.Find("button").Click();
 
-            // Wait for async API call to complete
-
-            // Debugging: Log requests
-            //var requests = mockHandler.Invocations;
-            //Console.WriteLine($"Total requests made: {requests.Count}");
-            //foreach ( var request in requests)
-            //{
-            //    Console.WriteLine(request);
-            //}
-
-            // Assert: Ensure API call happened
-            mockHandler.Protected().Verify(
+            // Verify PUT request was sent
+            mockHttpHandler.Protected().Verify(
                 "SendAsync",
                 Times.Once(),
                 ItExpr.Is<HttpRequestMessage>(req =>
                     req.Method == HttpMethod.Put &&
-                    req.RequestUri.ToString().Contains($"api/Student/{studentId}")),
+                    req.RequestUri.ToString().Contains($"api/Student/{studentId}")
+                ),
                 ItExpr.IsAny<CancellationToken>()
             );
 
-            //// Ensure success message is displayed
-            //cut.WaitForState(() => cut.Markup.Contains("Student updated successfully!"));
-            //Assert.Contains("Student updated successfully!", cut.Markup);
+            // Verify navigation occurs after update
+            //mockNav.Verify(nav => nav.NavigateTo("/", true), Times.Once);
         }
     }
 }

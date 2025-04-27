@@ -12,9 +12,9 @@
 <EditForm Model="@SearchVM" OnSubmit="SearchStudent">
     <DataAnnotationsValidator />
     <ValidationSummary />
-    <div class="input-group mb-5">
+    <div class="input-group mb-2">
         <InputText @bind-Value="SearchVM.SearchText" class="form-control" placeholder="Search students by id or name"></InputText>
-        <button class="btn btn-primary">Search</button>
+        <button class="btn btn-dark">Search</button>
     </div>
 </EditForm>
 
