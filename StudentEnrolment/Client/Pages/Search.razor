@@ -8,13 +8,13 @@
 
 <h1>Search students</h1>
 
-<p>This component demonstrates fetching students from the server.</p>
+<p>This component search among other students.</p>
 <EditForm Model="@SearchVM" OnSubmit="SearchStudent">
     <DataAnnotationsValidator />
     <ValidationSummary />
     <div class="input-group mb-2">
-        <InputText @bind-Value="SearchVM.SearchText" class="form-control" placeholder="Search students by id or name"></InputText>
-        <button class="btn btn-dark">Search</button>
+        <InputText @bind-Value="SearchVM.SearchText" class="form-control rounded-0" placeholder="Search students by id or name"></InputText>
+        <button class="btn btn-dark rounded-0">Search</button>
     </div>
 </EditForm>
 
@@ -30,6 +30,7 @@
         Students = await Client.GetFromJsonAsync<IEnumerable<Student>>($"https://localhost:7117/api/Student/SearchStudents?id=" + SearchVM.SearchText).ConfigureAwait(false);
         Refresh();
     }
+
     private async void Refresh()
     {
         StateHasChanged();

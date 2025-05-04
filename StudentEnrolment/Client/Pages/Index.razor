@@ -16,12 +16,12 @@
     <thead>
         <tr>
             <th>SID</th>
-            <th>Student name</th>
-            <th>Date of Birth</th>
-            <th>University course</th>
-            <th>Start date</th>
-            <th>End date</th>
-            <th>Welsh proficiency</th>
+            <th class="d-none d-md-table-cell">Student name</th>
+            <th class="d-none d-md-table-cell">Birth</th>
+            <th>Course</th>
+            <th class="d-none d-md-table-cell">Start</th>
+            <th class="d-none d-md-table-cell">End</th>
+            <th>Welsh</th>
             <th></th>
         </tr>
     </thead>
@@ -31,18 +31,20 @@
             @foreach (var item in Students)
             {
                 <tr>
-                    <td class="align-middle">@item.StudentId</td>
-                    <td class="align-middle">@item.StudentName</td>
-                    <td class="align-middle">@item.DateOfBirth.ToShortDateString()</td>
+                    <td class="align-middle text-center">@item.StudentId</td>
+                    <td class="align-middle d-none d-md-table-cell">@item.StudentName</td>
+                    <td class="align-middle d-none d-md-table-cell">@item.DateOfBirth.ToShortDateString()</td>
                     <td class="align-middle">@item.CourseName</td>
-                    <td class="align-middle">@item.StartDate.ToShortDateString()</td>
-                    <td class="align-middle">@item.EndDate.ToShortDateString()</td>
+                    <td class="align-middle d-none d-md-table-cell">@item.StartDate.ToShortDateString()</td>
+                    <td class="align-middle d-none d-md-table-cell">@item.EndDate.ToShortDateString()</td>
                     <td class="align-middle">@item.WelshLanguageProficiency</td>
                     <td>
-                        <button class="btn btn-dark float-end" @onclick="@(e => DeleteStudent(item.StudentId))">
-                            <span class="oi oi-trash" aria-hidden="true"></span>
+                        <button class="btn btn-dark float-end rounded-0" @onclick="@(e => DeleteStudent(item.StudentId))">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                                <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0" />
+                            </svg>
                         </button>
-                        <button class="btn btn-outline-dark float-end mx-2" @onclick="@(e => GoToUpdate(item.StudentId))">
+                        <button class="btn btn-outline-dark float-end rounded-0 mx-2" @onclick="@(e => GoToUpdate(item.StudentId))">
                             Edit
                         </button>
                     </td>
