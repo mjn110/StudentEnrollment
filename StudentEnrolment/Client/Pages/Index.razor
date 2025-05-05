@@ -1,4 +1,5 @@
 ﻿@page "/"
+@using Microsoft.AspNetCore.Components.Authorization
 @using StudentEnrolment.Shared;
 @inject NavigationManager Navigate
 @inject HttpClient Client
@@ -61,8 +62,21 @@
     [Parameter]
     public IEnumerable<Student> Students { get; set; }
 
+
     protected override async Task OnInitializedAsync()
     {
+        try
+        {
+            var AuthenticationState = await Client.GetAsync("https://localhost:7117/api/Account/GetAuthenticationState").ConfigureAwait(false);
+            if (AuthenticationState == null || !AuthenticationState.IsSuccessStatusCode)
+            {
+                Navigate.NavigateTo("/signin", true);
+            }
+        }
+        catch (Exception)
+        {
+            Navigate.NavigateTo("/signin", true);
+        }
         Students = await Client.GetFromJsonAsync<IEnumerable<Student>>("https://localhost:7117/api/Student").ConfigureAwait(false);
     }
 

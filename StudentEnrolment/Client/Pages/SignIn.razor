@@ -38,7 +38,10 @@
                     </div>
                 </div>
                 <div class="form-group mb-3 text-center">
-                    <button type="submit" class="btn btn-dark btn-block rounded-0">Sign in</button>
+                    <button type="submit" class="btn btn-dark btn-block rounded-0">
+                        <span class="@(Loading + " spinner-border spinner-border-sm")" aria-hidden="true"></span>
+                        Sign in
+                    </button>
                 </div>
                 <div class="text-center">
                     <a href="signin" class="text-dark">Forgot password?</a>
@@ -64,20 +67,26 @@
     public string PassValid { get; set; } = string.Empty;
     public string NotificationMessage { get; set; } = string.Empty;
 
+    public string Loading { get; set; } = "d-none";
+
     private async Task HandleSignIn()
     {
         var EmailValidation = await CheckEmailInput(SignInVM.Email);
         var PassValidation = await CheckPasswordInput(SignInVM.Password);
         if (EmailValidation && PassValidation)
         {
+            Loading = string.Empty;
             // Validation succeed so perform sign-in logic here
             var response = await Client.PostAsJsonAsync("https://localhost:7117/api/Account/SignIn", SignInVM);
             if (response.IsSuccessStatusCode)
             {
                 Console.WriteLine("Sign in successful");
                 EmailValid = "valid";
-                EmailValid = "valid";
+                PassValid = "valid";
+                await Task.Delay(1000);
                 await ShowToast("Authentication succeed!");
+                Loading = "d-none";
+                StateHasChanged();
                 await Task.Delay(2000);
                 Navigation.NavigateTo("/");
             }

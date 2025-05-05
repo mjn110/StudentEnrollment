@@ -41,5 +41,19 @@ namespace StudentEnrolment.Server.Controllers
             await _signInManager.SignOutAsync();
             return Ok();
         }
+
+        [HttpGet("GetAuthenticationState")]
+        public IActionResult GetAuthenticationState() // Removed async as it is not needed
+        {
+            var user = _signInManager.Context.User; // Directly access the ClaimsPrincipal
+            if (user.Identity is not null && user.Identity.IsAuthenticated)
+            {
+                return Ok($"{user.Identity.Name} is authenticated.");
+            }
+            else
+            {
+                return Unauthorized("The user is NOT authenticated.");
+            }
+        }
     }
 }
