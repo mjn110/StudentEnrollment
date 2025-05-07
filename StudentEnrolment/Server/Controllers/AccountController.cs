@@ -35,8 +35,8 @@ namespace StudentEnrolment.Server.Controllers
             return BadRequest(ModelState);
         }
 
-        [HttpPost("logout")]
-        public async Task<IActionResult> Logout()
+        [HttpPost("SignOut")]
+        public async Task<IActionResult> SignOut()
         {
             await _signInManager.SignOutAsync();
             return Ok();

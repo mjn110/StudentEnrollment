@@ -1,4 +1,6 @@
 ﻿@inherits LayoutComponentBase
+@inject NavigationManager Navigate
+@inject HttpClient Client
 
 <div class="page">
     <div>
@@ -15,3 +17,21 @@
         </article>
     </main>
 </div>
+@code
+{
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            var AuthenticationState = await Client.GetAsync("https://localhost:7117/api/Account/GetAuthenticationState").ConfigureAwait(false);
+            if (AuthenticationState == null || !AuthenticationState.IsSuccessStatusCode)
+            {
+                Navigate.NavigateTo("/signin", true);
+            }
+        }
+        catch (Exception)
+        {
+            Navigate.NavigateTo("/signin", true);
+        }
+    }
+}
