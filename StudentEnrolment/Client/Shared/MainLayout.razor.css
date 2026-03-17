@@ -37,6 +37,12 @@ main {
     }
 
 @media (max-width: 640.98px) {
+    main {
+        height: 100%;
+    }
+    .page {
+        height: 100vh;
+    }
     .top-row:not(.auth) {
         display: none;
     }
@@ -57,7 +63,7 @@ main {
 
     .sidebar {
         width: 250px;
-        height: 100vh;
+        height: 900px !important;
         position: sticky;
         top: 0;
     }

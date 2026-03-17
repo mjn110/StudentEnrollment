@@ -1,7 +1,12 @@
 @import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
+@font-face {
+    font-family: "Fustat";
+    src: url("/fonts/Fustat.ttf") format("woff2");
+}
 
 html, body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    /*font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;*/
+    font-family: 'Fustat', Helvetica, Arial, sans-serif;
 }
 
 h1:focus {

@@ -37,6 +37,12 @@ main[b-o59k2lgxfw] {
     }
 
 @media (max-width: 640.98px) {
+    main[b-o59k2lgxfw] {
+        height: 100%;
+    }
+    .page[b-o59k2lgxfw] {
+        height: 100vh;
+    }
     .top-row:not(.auth)[b-o59k2lgxfw] {
         display: none;
     }
@@ -57,7 +63,7 @@ main[b-o59k2lgxfw] {
 
     .sidebar[b-o59k2lgxfw] {
         width: 250px;
-        height: 100vh;
+        height: 900px !important;
         position: sticky;
         top: 0;
     }

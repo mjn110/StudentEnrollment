@@ -18,7 +18,7 @@ namespace StudentEnrolment.Shared.ViewModels
 
         [DisplayName("Date of Birth")]
         [Required]
-        public DateTime DateOfBirth { get; set; }
+        public DateTime DateOfBirth { get; set; } = DateTime.Now;
 
         [DisplayName("Course Name")]
         [Required]
@@ -26,11 +26,11 @@ namespace StudentEnrolment.Shared.ViewModels
 
         [DisplayName("Start Date")]
         [Required]
-        public DateTime StartDate { get; set; }
+        public DateTime StartDate { get; set; } = DateTime.Now;
 
         [DisplayName("End Date")]
         [Required]
-        public DateTime EndDate { get; set; }
+        public DateTime EndDate { get; set; } = DateTime.Now;
 
         [DisplayName("Welsh Language Proficiency")]
         [Required]

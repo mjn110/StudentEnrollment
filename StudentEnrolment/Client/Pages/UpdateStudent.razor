@@ -14,15 +14,15 @@
     <DataAnnotationsValidator />
     <ValidationSummary />
     <div class="row">
-        <div class="col-12 col-md-6 mb-3">
-            <InputText required @bind-Value="StudentVM.StudentName" class="form-control" aria-label="Name" placeholder="Student Name"></InputText>
+        <div class="col-12 mb-3">
+            <InputText required @bind-Value="StudentVM.StudentName" class="form-control rounded-0" aria-label="Name" placeholder="Student Name"></InputText>
         </div>
     </div>
     <div class="row">
-        <div class="col-12 col-md-6 mb-3">
+        <div class="col-12 mb-3">
             <div class="input-group">
-                <span class="input-group-text" id="basic-addon1">Welsh Language Proficiency</span>
-                <InputSelect required @bind-Value="StudentVM.WelshLanguageProficiency" class="form-control" aria-label="Welsh" placeholder="Welsh Language Proficiency">
+                <span class="input-group-text rounded-0" id="basic-addon1">Welsh Language Proficiency</span>
+                <InputSelect required @bind-Value="StudentVM.WelshLanguageProficiency" class="form-control rounded-0" aria-label="Welsh" placeholder="Welsh Language Proficiency">
                     <option value="Fluent">Fluent</option>
                     <option value="Interact">Interact with other welsh speakers</option>
                     <option value="Basic">use basic expressions</option>
@@ -33,7 +33,7 @@
     </div>
     <div class="row">
         <div class="col">
-            <button class="btn btn-success">
+            <button class="btn btn-outline-light rounded-0">
                 Update Student
             </button>
         </div>
