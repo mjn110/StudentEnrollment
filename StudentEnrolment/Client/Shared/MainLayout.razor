@@ -19,7 +19,7 @@
     {
         try
         {
-            var AuthenticationState = await Client.GetAsync("https://localhost:7117/api/Account/GetAuthenticationState").ConfigureAwait(false);
+            var AuthenticationState = await Client.GetAsync("/api/Account/GetAuthenticationState").ConfigureAwait(false);
             if (AuthenticationState == null || !AuthenticationState.IsSuccessStatusCode)
             {
                 Navigate.NavigateTo("/signin", true);

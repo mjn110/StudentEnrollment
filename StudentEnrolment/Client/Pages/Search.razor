@@ -27,7 +27,7 @@
 
     private async void SearchStudent()
     {
-        Students = await Client.GetFromJsonAsync<IEnumerable<Student>>($"https://localhost:7117/api/Student/SearchStudents?id=" + SearchVM.SearchText).ConfigureAwait(false);
+        Students = await Client.GetFromJsonAsync<IEnumerable<Student>>($"/api/Student/SearchStudents?id=" + SearchVM.SearchText).ConfigureAwait(false);
         Refresh();
     }
 

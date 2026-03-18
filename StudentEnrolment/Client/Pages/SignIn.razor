@@ -91,7 +91,7 @@
         {
             Loading = string.Empty;
             // Validation succeed so perform sign-in logic here
-            var response = await Client.PostAsJsonAsync("https://localhost:7117/api/Account/SignIn", SignInVM);
+            var response = await Client.PostAsJsonAsync("/api/Account/SignIn", SignInVM);
             if (response.IsSuccessStatusCode)
             {
                 Console.WriteLine("Sign in successful");

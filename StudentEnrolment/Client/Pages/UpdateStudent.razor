@@ -51,12 +51,12 @@
 
     protected override async Task OnInitializedAsync()
     {
-        StudentVM = await Client.GetFromJsonAsync<UpdateStudentViewModel>($"https://localhost:7117/api/Student/GetStudentForUpdate?id={studentid}").ConfigureAwait(false);
+        StudentVM = await Client.GetFromJsonAsync<UpdateStudentViewModel>($"/api/Student/GetStudentForUpdate?id={studentid}").ConfigureAwait(false);
     }
 
     private async Task UpdateStudentInfo()
     {
-        await Client.PutAsJsonAsync<UpdateStudentViewModel>($"https://localhost:7117/api/Student/{studentid}", StudentVM).ConfigureAwait(false);
+        await Client.PutAsJsonAsync<UpdateStudentViewModel>($"/api/Student/{studentid}", StudentVM).ConfigureAwait(false);
         Refresh();
     }
 

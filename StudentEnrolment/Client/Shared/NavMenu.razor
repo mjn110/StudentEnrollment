@@ -47,7 +47,7 @@
 
     private async Task Signout()
     {
-        var response = await Client.PostAsync("https://localhost:7117/api/Account/SignOut", null);
+        var response = await Client.PostAsync("/api/Account/SignOut", null);
         if (response.IsSuccessStatusCode)
         {
             Navigate.NavigateTo("/signin");

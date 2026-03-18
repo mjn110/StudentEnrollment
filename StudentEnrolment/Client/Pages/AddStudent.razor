@@ -75,7 +75,7 @@
 
     private async void AddNewStudent()
     {
-        Client.PostAsJsonAsync<AddStudentViewModel>("https://localhost:7117/api/Student", StudentVM);
+        Client.PostAsJsonAsync<AddStudentViewModel>("/api/Student", StudentVM);
         Refresh();
     }
 

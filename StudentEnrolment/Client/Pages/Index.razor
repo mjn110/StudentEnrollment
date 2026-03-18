@@ -67,7 +67,7 @@
     {
         try
         {
-            var AuthenticationState = await Client.GetAsync("https://localhost:7117/api/Account/GetAuthenticationState").ConfigureAwait(false);
+            var AuthenticationState = await Client.GetAsync("/api/Account/GetAuthenticationState").ConfigureAwait(false);
             if (AuthenticationState == null || !AuthenticationState.IsSuccessStatusCode)
             {
                 Navigate.NavigateTo("/signin", true);
@@ -77,13 +77,13 @@
         {
             Navigate.NavigateTo("/signin", true);
         }
-        Students = await Client.GetFromJsonAsync<IEnumerable<Student>>("https://localhost:7117/api/Student").ConfigureAwait(false);
+        Students = await Client.GetFromJsonAsync<IEnumerable<Student>>("/api/Student").ConfigureAwait(false);
     }
 
     public async void DeleteStudent(int StudentId)
     {
-        Client.DeleteAsync($"https://localhost:7117/api/Student/{StudentId}");
-        Students = await Client.GetFromJsonAsync<IEnumerable<Student>>("https://localhost:7117/api/Student").ConfigureAwait(false);
+        Client.DeleteAsync($"/api/Student/{StudentId}");
+        Students = await Client.GetFromJsonAsync<IEnumerable<Student>>("/api/Student").ConfigureAwait(false);
         Navigate.NavigateTo("/", true);
     }
 
