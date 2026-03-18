@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mjnso\\Desktop\\StudentEnrolment\\MyTestProject\\MyTestProject.csproj": {}
+    "C:\\Users\\Mohammad\\Documents\\GitHub\\StudentEnrollment\\MyTestProject\\MyTestProject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mjnso\\Desktop\\StudentEnrolment\\MyTestProject\\MyTestProject.csproj": {
+    "C:\\Users\\Mohammad\\Documents\\GitHub\\StudentEnrollment\\MyTestProject\\MyTestProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mjnso\\Desktop\\StudentEnrolment\\MyTestProject\\MyTestProject.csproj",
+        "projectUniqueName": "C:\\Users\\Mohammad\\Documents\\GitHub\\StudentEnrollment\\MyTestProject\\MyTestProject.csproj",
         "projectName": "MyTestProject",
-        "projectPath": "C:\\Users\\mjnso\\Desktop\\StudentEnrolment\\MyTestProject\\MyTestProject.csproj",
-        "packagesPath": "C:\\Users\\mjnso\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mjnso\\Desktop\\StudentEnrolment\\MyTestProject\\obj\\",
+        "projectPath": "C:\\Users\\Mohammad\\Documents\\GitHub\\StudentEnrollment\\MyTestProject\\MyTestProject.csproj",
+        "packagesPath": "C:\\Users\\Mohammad\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Mohammad\\Documents\\GitHub\\StudentEnrollment\\MyTestProject\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\mjnso\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Mohammad\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -31,10 +31,11 @@
         },
         "frameworks": {
           "net7.0": {
+            "framework": "net7.0",
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\mjnso\\Desktop\\StudentEnrolment\\StudentEnrolment\\Client\\StudentEnrolment.Client.csproj": {
-                "projectPath": "C:\\Users\\mjnso\\Desktop\\StudentEnrolment\\StudentEnrolment\\Client\\StudentEnrolment.Client.csproj"
+              "C:\\Users\\Mohammad\\Documents\\GitHub\\StudentEnrollment\\StudentEnrolment\\Client\\StudentEnrolment.Client.csproj": {
+                "projectPath": "C:\\Users\\Mohammad\\Documents\\GitHub\\StudentEnrollment\\StudentEnrolment\\Client\\StudentEnrolment.Client.csproj"
               }
             }
           }
@@ -43,15 +44,38 @@
           "warnAsError": [
             "NU1605"
           ]
-        }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "10.0.200"
       },
       "frameworks": {
         "net7.0": {
+          "framework": "net7.0",
           "targetAlias": "net7.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Identity": {
+              "target": "Package",
+              "version": "[2.3.1, )"
+            },
+            "Microsoft.Data.SqlClient": {
+              "target": "Package",
+              "version": "[5.1.4, )"
+            },
+            "Microsoft.Extensions.Http": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
               "version": "[17.3.2, )"
+            },
+            "Moq": {
+              "target": "Package",
+              "version": "[4.20.72, )"
             },
             "bunit": {
               "target": "Package",
@@ -90,24 +114,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\mjnso\\Desktop\\StudentEnrolment\\StudentEnrolment\\Client\\StudentEnrolment.Client.csproj": {
+    "C:\\Users\\Mohammad\\Documents\\GitHub\\StudentEnrollment\\StudentEnrolment\\Client\\StudentEnrolment.Client.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mjnso\\Desktop\\StudentEnrolment\\StudentEnrolment\\Client\\StudentEnrolment.Client.csproj",
+        "projectUniqueName": "C:\\Users\\Mohammad\\Documents\\GitHub\\StudentEnrollment\\StudentEnrolment\\Client\\StudentEnrolment.Client.csproj",
         "projectName": "StudentEnrolment.Client",
-        "projectPath": "C:\\Users\\mjnso\\Desktop\\StudentEnrolment\\StudentEnrolment\\Client\\StudentEnrolment.Client.csproj",
-        "packagesPath": "C:\\Users\\mjnso\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mjnso\\Desktop\\StudentEnrolment\\StudentEnrolment\\Client\\obj\\",
+        "projectPath": "C:\\Users\\Mohammad\\Documents\\GitHub\\StudentEnrollment\\StudentEnrolment\\Client\\StudentEnrolment.Client.csproj",
+        "packagesPath": "C:\\Users\\Mohammad\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Mohammad\\Documents\\GitHub\\StudentEnrollment\\StudentEnrolment\\Client\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\mjnso\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Mohammad\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -121,10 +145,11 @@
         },
         "frameworks": {
           "net7.0": {
+            "framework": "net7.0",
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\mjnso\\Desktop\\StudentEnrolment\\StudentEnrolment\\Shared\\StudentEnrolment.Shared.csproj": {
-                "projectPath": "C:\\Users\\mjnso\\Desktop\\StudentEnrolment\\StudentEnrolment\\Shared\\StudentEnrolment.Shared.csproj"
+              "C:\\Users\\Mohammad\\Documents\\GitHub\\StudentEnrollment\\StudentEnrolment\\Shared\\StudentEnrolment.Shared.csproj": {
+                "projectPath": "C:\\Users\\Mohammad\\Documents\\GitHub\\StudentEnrollment\\StudentEnrolment\\Shared\\StudentEnrolment.Shared.csproj"
               }
             }
           }
@@ -133,10 +158,17 @@
           "warnAsError": [
             "NU1605"
           ]
-        }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "10.0.200"
       },
       "frameworks": {
         "net7.0": {
+          "framework": "net7.0",
           "targetAlias": "net7.0",
           "dependencies": {
             "Microsoft.AspNetCore.Components.WebAssembly": {
@@ -147,6 +179,36 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[7.0.3, )"
+            },
+            "Microsoft.AspNetCore.Identity": {
+              "target": "Package",
+              "version": "[2.3.1, )"
+            },
+            "Microsoft.Extensions.Http": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.NET.ILLink.Analyzers": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.100-1.23211.1, )",
+              "autoReferenced": true
+            },
+            "Microsoft.NET.ILLink.Tasks": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.100-1.23211.1, )",
+              "autoReferenced": true
+            },
+            "Microsoft.NET.Sdk.WebAssembly.Pack": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[10.0.5, )",
+              "autoReferenced": true
+            },
+            "Moq": {
+              "target": "Package",
+              "version": "[4.20.72, )"
             },
             "bunit": {
               "target": "Package",
@@ -167,7 +229,7 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
-              "version": "[7.0.3, 7.0.3]"
+              "version": "[7.0.20, 7.0.20]"
             }
           ],
           "frameworkReferences": {
@@ -175,7 +237,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.201\\RuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {
@@ -184,20 +246,20 @@
         }
       }
     },
-    "C:\\Users\\mjnso\\Desktop\\StudentEnrolment\\StudentEnrolment\\Shared\\StudentEnrolment.Shared.csproj": {
+    "C:\\Users\\Mohammad\\Documents\\GitHub\\StudentEnrollment\\StudentEnrolment\\Shared\\StudentEnrolment.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mjnso\\Desktop\\StudentEnrolment\\StudentEnrolment\\Shared\\StudentEnrolment.Shared.csproj",
+        "projectUniqueName": "C:\\Users\\Mohammad\\Documents\\GitHub\\StudentEnrollment\\StudentEnrolment\\Shared\\StudentEnrolment.Shared.csproj",
         "projectName": "StudentEnrolment.Shared",
-        "projectPath": "C:\\Users\\mjnso\\Desktop\\StudentEnrolment\\StudentEnrolment\\Shared\\StudentEnrolment.Shared.csproj",
-        "packagesPath": "C:\\Users\\mjnso\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mjnso\\Desktop\\StudentEnrolment\\StudentEnrolment\\Shared\\obj\\",
+        "projectPath": "C:\\Users\\Mohammad\\Documents\\GitHub\\StudentEnrollment\\StudentEnrolment\\Shared\\StudentEnrolment.Shared.csproj",
+        "packagesPath": "C:\\Users\\Mohammad\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Mohammad\\Documents\\GitHub\\StudentEnrollment\\StudentEnrolment\\Shared\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\mjnso\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Mohammad\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -211,6 +273,7 @@
         },
         "frameworks": {
           "net7.0": {
+            "framework": "net7.0",
             "targetAlias": "net7.0",
             "projectReferences": {}
           }
@@ -219,12 +282,27 @@
           "warnAsError": [
             "NU1605"
           ]
-        }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "10.0.200"
       },
       "frameworks": {
         "net7.0": {
+          "framework": "net7.0",
           "targetAlias": "net7.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Identity": {
+              "target": "Package",
+              "version": "[2.3.1, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.5, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[7.0.5, )"
@@ -244,6 +322,14 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[7.0.5, )"
+            },
+            "Microsoft.Extensions.Http": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Moq": {
+              "target": "Package",
+              "version": "[4.20.72, )"
             },
             "bunit": {
               "target": "Package",
@@ -266,7 +352,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }
