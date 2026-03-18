@@ -58,10 +58,10 @@ namespace StudentEnrolment.Server.Services
             _context.Students.Add(new Student
             {
                 StudentName = student.StudentName,
-                DateOfBirth = student.DateOfBirth,
+                DateOfBirth = student.DateOfBirth.ToUniversalTime(),
                 CourseName = student.CourseName,
-                EndDate = student.EndDate,
-                StartDate = student.StartDate,
+                EndDate = student.EndDate.ToUniversalTime(),
+                StartDate = student.StartDate.ToUniversalTime(),
                 WelshLanguageProficiency = student.WelshLanguageProficiency
             });
             _context.SaveChanges();

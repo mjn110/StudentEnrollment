@@ -1,10 +1,11 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using StudentEnrolment.Server.Data;
 using StudentEnrolment.Server.Interfaces;
 using StudentEnrolment.Server.Services;
 using StudentEnrolment.Shared.Data;
-using Microsoft.Extensions.DependencyInjection;
 using StudentEnrolment.Shared.Models; // Add this using directive
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,7 +17,8 @@ builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 
 #region Context  
-builder.Services.AddDbContext<EnrolmentContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+//builder.Services.AddDbContext<EnrolmentContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddDbContext<EnrolmentContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 #endregion
 
 #region IOC  
@@ -59,5 +61,10 @@ app.UseAuthorization(); // Add this line
 app.MapRazorPages();
 app.MapControllers();
 app.MapFallbackToFile("index.html");
+
+using (var scope = app.Services.CreateScope())
+{
+    await IdentitySeeder.SeedAdminUserAsync(scope.ServiceProvider);
+}
 
 app.Run();
