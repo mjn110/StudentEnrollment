@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("StudentEnrolment.Shared")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+15050b8616db329d34337c9c25ead184e4345085")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6533e87d5b644b04ff87117436c82448c7bd4f27")]
 [assembly: System.Reflection.AssemblyProductAttribute("StudentEnrolment.Shared")]
 [assembly: System.Reflection.AssemblyTitleAttribute("StudentEnrolment.Shared")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,5 +1,5 @@
 self.assetsManifest = {
-  "version": "ncl716a/",
+  "version": "Okh71dfC",
   "assets": [
     {
       "hash": "sha256-/cDIS5DvWtHTYHCC8b59RaCvrurnCIQ21X9Dyv6ny2U=",
@@ -182,7 +182,7 @@ self.assetsManifest = {
       "url": "_framework/Microsoft.Extensions.Caching.Memory.dll"
     },
     {
-      "hash": "sha256-iygIZOZIJYA0n2o0XGtpBp+4rmpUqwqI9pnvRYB9WPY=",
+      "hash": "sha256-FvKBjmTM3EakYZ8lpuFAlzwmCUsO0miEo0LSf7Q1+VY=",
       "url": "_framework/Microsoft.Extensions.Configuration.Abstractions.dll"
     },
     {
@@ -202,11 +202,11 @@ self.assetsManifest = {
       "url": "_framework/Microsoft.Extensions.Configuration.dll"
     },
     {
-      "hash": "sha256-4F8BqUFj5P831vBDY+18lNS6dw8j2jxBPRNRqatH3H8=",
+      "hash": "sha256-9cC44HFpu/1h7+YR4j9oaN8KMS1+F3B/mmRpeiFthb0=",
       "url": "_framework/Microsoft.Extensions.DependencyInjection.Abstractions.dll"
     },
     {
-      "hash": "sha256-z55c9OQqZexE01nPIfHIMNLc8WBFm3eUeMcRQzi5+/w=",
+      "hash": "sha256-TbfF69l4/DFevcjwI45dEFBgOcHctiW/6ZjG8ueaous=",
       "url": "_framework/Microsoft.Extensions.DependencyInjection.dll"
     },
     {
@@ -230,7 +230,7 @@ self.assetsManifest = {
       "url": "_framework/Microsoft.Extensions.Hosting.Abstractions.dll"
     },
     {
-      "hash": "sha256-MgeGktMwYZc/r6g0q5vNue47wntuy5v5pHPv+tTzW2g=",
+      "hash": "sha256-0KK4LBMr6k+EJc9UClFHwrkZ3JoyEYgiEG24BN3kZaA=",
       "url": "_framework/Microsoft.Extensions.Http.dll"
     },
     {
@@ -246,11 +246,11 @@ self.assetsManifest = {
       "url": "_framework/Microsoft.Extensions.Localization.Abstractions.dll"
     },
     {
-      "hash": "sha256-ixR/AUCpfighU/OFp7TlEzSyfEiQSDMMDAGNIzF5vQg=",
+      "hash": "sha256-1jIo4C7/OKevsK7Vr2atWabjZQ3w8/gFapyWHDqFPeE=",
       "url": "_framework/Microsoft.Extensions.Logging.Abstractions.dll"
     },
     {
-      "hash": "sha256-aO7vEWJ4cu/Wea50920IDtRFLFZYNBtQfRuJsAtBTjs=",
+      "hash": "sha256-RUsKitA2z2YW3IQHqK8lIe5lQv0RxTHmRALAZfbrxmo=",
       "url": "_framework/Microsoft.Extensions.Logging.dll"
     },
     {
@@ -258,11 +258,11 @@ self.assetsManifest = {
       "url": "_framework/Microsoft.Extensions.ObjectPool.dll"
     },
     {
-      "hash": "sha256-GI7KjXmCPuBdNrrTwaS+W3AJu5NUSUh8f/jcH7QxHcE=",
+      "hash": "sha256-cPtKxxU+T5GpN+ckZrBM9Af32TT3TY+E42K72znd40M=",
       "url": "_framework/Microsoft.Extensions.Options.dll"
     },
     {
-      "hash": "sha256-yenXSiga29STlwBeeQLhXX4V5LhhlKGX4OoB3qk5BLU=",
+      "hash": "sha256-seZkkGFvJSZtenptwTnqn8hg73jxbtU0sd5DUGYXkTs=",
       "url": "_framework/Microsoft.Extensions.Primitives.dll"
     },
     {
@@ -342,19 +342,27 @@ self.assetsManifest = {
       "url": "_framework/Moq.dll"
     },
     {
-      "hash": "sha256-NRuwdnOSdVBZ4lixbKq0sggurJ3SqVCaCoxIcmTsbR8=",
+      "hash": "sha256-bc7BD6PchRJRg1DmxhMexbw7cuve+JZ2J70P1ALM/lM=",
+      "url": "_framework/Npgsql.EntityFrameworkCore.PostgreSQL.dll"
+    },
+    {
+      "hash": "sha256-Z6Wa/RQP0myUKZ6nn/TD+FKQinJl8M6tDtlwkNZZ2OI=",
+      "url": "_framework/Npgsql.dll"
+    },
+    {
+      "hash": "sha256-ge21FEV9mwDaE6+ebieefp1l0E0HN8pVDVB4XkmnwdM=",
       "url": "_framework/StudentEnrolment.Client.dll"
     },
     {
-      "hash": "sha256-SO7Bw46urn3392mTLsgXjrHSBPrhR6qaer7iPmgKOzc=",
+      "hash": "sha256-H43oqeBxzPDF011HdmNUScU+1ZOZElSjIE420CyT6Fk=",
       "url": "_framework/StudentEnrolment.Client.pdb"
     },
     {
-      "hash": "sha256-jd8c1yWTi1iN34wMO/HGZJg88meHOPT6/eo1jswGehI=",
+      "hash": "sha256-HUXJG0jFRBrKB0b58r6hTtk2kcLcGMCm14Sz9J1clHE=",
       "url": "_framework/StudentEnrolment.Shared.dll"
     },
     {
-      "hash": "sha256-zwdqohY+CCxfFgiTxbh6SyJJ8fAvM8nUHbaI4B8Gfnc=",
+      "hash": "sha256-cAL4TRC4Bhq5ChLUUFPRZMxxksuEdzGzdvND7VI0QR0=",
       "url": "_framework/StudentEnrolment.Shared.pdb"
     },
     {
@@ -446,7 +454,7 @@ self.assetsManifest = {
       "url": "_framework/System.Diagnostics.Debug.dll"
     },
     {
-      "hash": "sha256-YrVnXhPZK5c6njS4zKin8TkpbrKGNHSWUA/SDWQ7EXA=",
+      "hash": "sha256-bhXXN37kpx8/uXRt+Vmm58TeI0JgVNUN7umAgukwhX4=",
       "url": "_framework/System.Diagnostics.DiagnosticSource.dll"
     },
     {
@@ -1050,7 +1058,7 @@ self.assetsManifest = {
       "url": "_framework/WindowsBase.dll"
     },
     {
-      "hash": "sha256-yQpQoTtOb5SohHeQJXhZX7bStRXqlzQIvor8+mW2dnY=",
+      "hash": "sha256-UjNe9BDmLi84ljjRjy1bikEBOXg7RipJhzyT3wwpF0U=",
       "url": "_framework/blazor.boot.json"
     },
     {

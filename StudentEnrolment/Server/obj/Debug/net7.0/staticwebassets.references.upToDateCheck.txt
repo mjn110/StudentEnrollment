@@ -34,3 +34,10 @@ C:\Users\Mohammad\Documents\GitHub\StudentEnrollment\StudentEnrolment\Client\obj
 C:\Users\Mohammad\Documents\GitHub\StudentEnrollment\StudentEnrolment\Client\obj\Debug\net7.0\staticwebassets.build.json
 C:\Users\Mohammad\Documents\GitHub\StudentEnrollment\StudentEnrolment\Client\obj\Debug\net7.0\staticwebassets.build.json
 C:\Users\Mohammad\Documents\GitHub\StudentEnrollment\StudentEnrolment\Client\obj\Debug\net7.0\staticwebassets.build.json
+C:\Users\Mohammad\Documents\GitHub\StudentEnrollment\StudentEnrolment\Client\obj\Debug\net7.0\staticwebassets.build.json
+C:\Users\Mohammad\Documents\GitHub\StudentEnrollment\StudentEnrolment\Client\obj\Debug\net7.0\staticwebassets.build.json
+C:\Users\Mohammad\Documents\GitHub\StudentEnrollment\StudentEnrolment\Client\obj\Debug\net7.0\staticwebassets.build.json
+C:\Users\Mohammad\Documents\GitHub\StudentEnrollment\StudentEnrolment\Client\obj\Debug\net7.0\staticwebassets.build.json
+C:\Users\Mohammad\Documents\GitHub\StudentEnrollment\StudentEnrolment\Client\obj\Debug\net7.0\staticwebassets.build.json
+C:\Users\Mohammad\Documents\GitHub\StudentEnrollment\StudentEnrolment\Client\obj\Debug\net7.0\staticwebassets.build.json
+C:\Users\Mohammad\Documents\GitHub\StudentEnrollment\StudentEnrolment\Client\obj\Debug\net7.0\staticwebassets.build.json

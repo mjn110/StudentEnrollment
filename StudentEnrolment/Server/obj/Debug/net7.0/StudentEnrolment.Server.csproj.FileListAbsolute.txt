@@ -342,3 +342,5 @@ C:\Users\Mohammad\Documents\GitHub\StudentEnrollment\StudentEnrolment\Server\obj
 C:\Users\Mohammad\Documents\GitHub\StudentEnrollment\StudentEnrolment\Server\obj\Debug\net7.0\StudentEnrolment.Server.pdb
 C:\Users\Mohammad\Documents\GitHub\StudentEnrollment\StudentEnrolment\Server\obj\Debug\net7.0\StudentEnrolment.Server.genruntimeconfig.cache
 C:\Users\Mohammad\Documents\GitHub\StudentEnrollment\StudentEnrolment\Server\obj\Debug\net7.0\ref\StudentEnrolment.Server.dll
+C:\Users\Mohammad\Documents\GitHub\StudentEnrollment\StudentEnrolment\Server\bin\Debug\net7.0\Npgsql.dll
+C:\Users\Mohammad\Documents\GitHub\StudentEnrollment\StudentEnrolment\Server\bin\Debug\net7.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll

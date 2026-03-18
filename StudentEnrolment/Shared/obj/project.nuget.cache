@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "DRj8jhoriIM=",
+  "dgSpecHash": "3kBzCHRxNuU=",
   "success": true,
   "projectFilePath": "C:\\Users\\Mohammad\\Documents\\GitHub\\StudentEnrollment\\StudentEnrolment\\Shared\\StudentEnrolment.Shared.csproj",
   "expectedPackageFiles": [
@@ -94,6 +94,8 @@
     "C:\\Users\\Mohammad\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
     "C:\\Users\\Mohammad\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
     "C:\\Users\\Mohammad\\.nuget\\packages\\moq\\4.20.72\\moq.4.20.72.nupkg.sha512",
+    "C:\\Users\\Mohammad\\.nuget\\packages\\npgsql\\7.0.0\\npgsql.7.0.0.nupkg.sha512",
+    "C:\\Users\\Mohammad\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\7.0.0\\npgsql.entityframeworkcore.postgresql.7.0.0.nupkg.sha512",
     "C:\\Users\\Mohammad\\.nuget\\packages\\system.buffers\\4.6.0\\system.buffers.4.6.0.nupkg.sha512",
     "C:\\Users\\Mohammad\\.nuget\\packages\\system.codedom\\4.4.0\\system.codedom.4.4.0.nupkg.sha512",
     "C:\\Users\\Mohammad\\.nuget\\packages\\system.configuration.configurationmanager\\5.0.0\\system.configuration.configurationmanager.5.0.0.nupkg.sha512",
