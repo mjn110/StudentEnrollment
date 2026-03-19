@@ -1,0 +1,12 @@
+﻿@media (max-width: 575.98px) {
+    .signin-box {
+        border: 0;
+        border-radius: 0;
+    }
+}
+@media (min-width: 575.98px) {
+    .signin-box {
+        border-radius: 0;
+        box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.2);
+    }
+}
