@@ -33,6 +33,12 @@ builder.Services.AddScoped<SignInManager<ApplicationUser>>(); // Ensure SignInMa
 builder.Services.AddScoped<UserManager<ApplicationUser>>(); // Ensure UserManager is registered
 #endregion  
 
+#region Logging
+builder.Logging.ClearProviders();
+builder.Logging.AddConsole();
+builder.Logging.AddDebug();
+#endregion
+
 var app = builder.Build();
 
 // Seed BEFORE middleware, but AFTER app is built
@@ -56,7 +62,6 @@ if (app.Environment.IsDevelopment())
 }
 else
 {
-    app.UseWebAssemblyDebugging();
     app.UseExceptionHandler("/Error");
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.  
     app.UseHsts();
