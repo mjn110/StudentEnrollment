@@ -37,6 +37,7 @@ builder.Services.AddScoped<UserManager<ApplicationUser>>(); // Ensure UserManage
 builder.Logging.ClearProviders();
 builder.Logging.AddConsole();
 builder.Logging.AddDebug();
+builder.Logging.AddAzureWebAppDiagnostics();
 #endregion
 
 var app = builder.Build();
