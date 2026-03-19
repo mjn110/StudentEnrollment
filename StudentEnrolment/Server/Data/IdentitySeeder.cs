@@ -7,7 +7,10 @@ namespace StudentEnrolment.Server.Data
     {
         public static async Task SeedAdminUserAsync(IServiceProvider serviceProvider)
         {
-            var logger = serviceProvider.GetRequiredService<ILoggerFactory>().CreateLogger("IdentitySeeder");
+            var logger = serviceProvider
+                .GetRequiredService<ILoggerFactory>()
+                .CreateLogger("IdentitySeeder");
+
 
             try
             {
@@ -52,7 +55,9 @@ namespace StudentEnrolment.Server.Data
             }
             catch (Exception ex)
             {
-                var logger2 = serviceProvider.GetRequiredService<ILoggerFactory>().CreateLogger("IdentitySeeder");
+                var logger2 = serviceProvider
+                    .GetRequiredService<ILoggerFactory>()
+                    .CreateLogger("IdentitySeeder");
                 logger2.LogError(ex, "Error during identity seeding");
                 throw;
             }
