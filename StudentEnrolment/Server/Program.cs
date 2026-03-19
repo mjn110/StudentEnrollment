@@ -42,18 +42,18 @@ builder.Logging.AddDebug();
 var app = builder.Build();
 
 // Seed BEFORE middleware, but AFTER app is built
-using (var scope = app.Services.CreateScope())
-{
-    try
-    {
-        await IdentitySeeder.SeedAdminUserAsync(scope.ServiceProvider);
-    }
-    catch (Exception ex)
-    {
-        var logger = scope.ServiceProvider.GetRequiredService<ILogger<Program>>();
-        logger.LogError(ex, "Error during identity seeding");
-    }
-}
+//using (var scope = app.Services.CreateScope())
+//{
+//    try
+//    {
+//        await IdentitySeeder.SeedAdminUserAsync(scope.ServiceProvider);
+//    }
+//    catch (Exception ex)
+//    {
+//        var logger = scope.ServiceProvider.GetRequiredService<ILogger<Program>>();
+//        logger.LogError(ex, "Error during identity seeding");
+//    }
+//}
 
 // Configure the HTTP request pipeline.  
 if (app.Environment.IsDevelopment())
