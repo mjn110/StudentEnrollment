@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using StudentEnrolment.Server.Interfaces;
 using StudentEnrolment.Shared;
 using StudentEnrolment.Shared.ViewModels;
@@ -18,10 +19,12 @@ namespace StudentEnrolment.Server.Controllers
         }
 
         // GET: api/<StudentController>
+        [Authorize(Roles = "Admin")]
         [HttpGet]
-        public IEnumerable<Student> Get()
+        public IActionResult Get()
         {
-            return _studentService.GetStudents();
+            var students = _studentService.GetStudents();
+            return Ok(students);
         }
 
         [HttpGet("SearchStudents")]

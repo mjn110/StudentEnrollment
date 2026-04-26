@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
 using StudentEnrolment.Client.ViewModels;
 using StudentEnrolment.Shared.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace StudentEnrolment.Server.Controllers
 {

@@ -27,6 +27,7 @@ builder.Services.AddTransient<IStudentService, StudentService>();
 
 #region Identity  
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = false)
+.AddRoles<IdentityRole>()
 .AddEntityFrameworkStores<EnrolmentContext>()
 .AddDefaultTokenProviders();
 builder.Services.AddScoped<SignInManager<ApplicationUser>>(); // Ensure SignInManager is registered
